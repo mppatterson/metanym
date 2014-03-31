@@ -10,23 +10,21 @@ class Metanym
   end
 
   def synonyms
-    @synonyms ||= items_at 'Synonyms'
+    @synonyms ||= items_at 'synonyms'
   end
 
   def antonyms
-    @antonyms ||= items_at 'Antonyms'
+    raise "Antonyms are currently deprecated."
   end
 
   def definition
-    @definition ||= doc.at_xpath('//td[.="Definition:"]/following::td').text
-  rescue NoMethodError
-    nil
+    raise "Definition is currently deprecated."
   end
 
-  def items_at(head)
-    doc.at_xpath("//td[.='#{head}:']/following-sibling::td").text.strip.split(/[\n,]\s*/)
-  rescue NoMethodError
-    []
+  def items_at(css_class)
+    query.doc.css(".#{css_class} span.text").map do |node|
+      node.children.text.squish
+    end
   end
 
   def doc

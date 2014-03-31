@@ -22,7 +22,7 @@ class Metanym
   end
 
   def items_at(css_class)
-    query.doc.css(".#{css_class} span.text").map do |node|
+    doc.css(".#{css_class} span.text").map do |node|
       node.children.text.squish
     end
   end

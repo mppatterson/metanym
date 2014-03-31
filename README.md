@@ -1,12 +1,12 @@
 Metanym
 =======
 
-Search thesaurus.com for Synonyms and Antonyms
+Search thesaurus.com for Synonyms
 
 Installation
 ============
 
-	gem install metanym
+	gem 'metanym', git: 'https://github.com/mppatterson/metanym.git'
 
 Usage
 =====
@@ -15,4 +15,7 @@ Usage
 
 	query = Metanym.new 'hello'
 	p query.synonyms #=> ["bonjour", "buenas noches", "buenos dias", ...]
-	p query.antonyms #=> ["adios", "au revoir", "goodbye"]
+
+Disclaimer
+======
+I am not responsible for your usage of this gem.  Be respectful of thesaurus.com and be mindful of the number of requests made against their site.  Use at your own risk.

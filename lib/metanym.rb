@@ -10,7 +10,11 @@ class Metanym
   end
 
   def synonyms
-    @synonyms ||= items_at 'synonyms'
+    @synonyms ||= items_at ".synonyms span.text"
+  end
+  
+  def related
+    @related ||= items_at ".syn_of_syns li a" 
   end
 
   def antonyms
@@ -21,8 +25,8 @@ class Metanym
     raise "Definition is currently deprecated."
   end
 
-  def items_at(css_class)
-    doc.css(".#{css_class} span.text").map do |node|
+  def items_at(css)
+    doc.css(css).map do |node|
       node.children.text.squish
     end
   end

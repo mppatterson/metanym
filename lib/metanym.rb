@@ -1,5 +1,6 @@
 require 'excon'
 require 'nokogiri'
+require 'array_extended'
 
 class Metanym
   VERSION = "0.1.0"

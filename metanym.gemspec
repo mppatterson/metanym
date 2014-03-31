@@ -1,5 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "metanym"
+require "array_extended"
 
 Gem::Specification.new do |s|
   s.name        = "metanym"

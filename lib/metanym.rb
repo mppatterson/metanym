@@ -12,6 +12,7 @@ class Metanym
 
   def synonyms
     @synonyms ||= items_at ".synonyms span.text"
+    @synonyms.reject{|s| antonyms.include? s}
   end
   
   def related
@@ -19,7 +20,7 @@ class Metanym
   end
 
   def antonyms
-    raise "Antonyms are currently deprecated."
+    @antonyms || = items_at ".antonyms span.text"
   end
 
   def definition

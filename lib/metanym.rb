@@ -20,7 +20,7 @@ class Metanym
   end
 
   def antonyms
-    @antonyms || = items_at ".antonyms span.text"
+    @antonyms ||= items_at ".antonyms span.text"
   end
 
   def definition
